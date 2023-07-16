@@ -153,7 +153,7 @@ export const NormalImageGallery = ({ normalLengthChange }) => {
   return (
     <div>
       <div className="container">
-        <h1>정상품목</h1>
+        <h1>Normal</h1>
         <div className="content">
           <div className="normal-list scrollableList">
             <div
@@ -169,7 +169,7 @@ export const NormalImageGallery = ({ normalLengthChange }) => {
                 size="small"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                placeholder="검색어를 입력하세요"
+                placeholder="Search"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

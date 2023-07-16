@@ -30,7 +30,7 @@ function EmailField({ onChange }) {
       variant="standard"
       margin="normal"
       error={emailError}
-      helperText={emailError ? "유효한 이메일 주소를 입력하세요." : ""}
+      helperText={emailError ? "Please enter a valid email address." : ""}
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">

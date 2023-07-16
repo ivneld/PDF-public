@@ -89,10 +89,10 @@ public class InitDB {
     @RequiredArgsConstructor
     @PropertySource("classpath:filePath.yml")
     static class initItem {
-        @Value("${images}")
-        private String imagesPath;
-        @Value("${json_files}")
-        private String jsonPath;
+//        @Value("${images}")
+        private String imagesPath = "/Users/kimyuseong/study/capstone_pdf_project/src/main/resources/sampleData/images";
+        //        @Value("${json_files}")
+        private String jsonPath = "/Users/kimyuseong/study/capstone_pdf_project/src/main/resources/sampleData/json_files";
 
         private final ItemService itemService;
         private final ItemRepository itemRepository;

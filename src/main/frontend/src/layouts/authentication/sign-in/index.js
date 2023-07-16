@@ -29,10 +29,10 @@ export default function SignIn() {
         console.log(res);
         if (res.data.nickname === undefined) {
           // id 일치하지 않는 경우 userId = undefined, msg = '입력하신 id 가 일치하지 않습니다.'
-          alert("입력하신 id 가 일치하지 않습니다.");
+          alert("The id you entered does not match.");
         } else if (res.data.nickname === null) {
           // id는 있지만, pw 는 다른 경우 userId = null , msg = undefined
-          alert("입력하신 비밀번호 가 일치하지 않습니다.");
+          alert("The passwords you entered do not match.");
         } else if (res.data.nickname === id) {
           sessionStorage.setItem("user_id", id); // sessionStorage에 id를 user_id라는 key 값으로 저장
 
@@ -40,8 +40,8 @@ export default function SignIn() {
         }
       })
       .catch((error) => {
-        console.error("API 호출 중 오류가 발생했습니다.", error);
-        alert("로그인 중 오류가 발생했습니다. 다시 시도해주세요.");
+        console.error("An error occurred while calling the API.", error);
+        alert("An error occurred while logging in. please try again.");
       });
   };
 
@@ -92,7 +92,7 @@ export default function SignIn() {
             onClick={onClickLogin}
             sx={{ width: "100%" }}
           >
-            로그인
+            Login
           </Button>
         </Grid>
 
@@ -105,14 +105,14 @@ export default function SignIn() {
             }}
           >
             <div style={{ margin: "1.5vh", textAlign: "center" }}>
-              아직 회원이 아니신가요? &nbsp;
+              Not a member yet? &nbsp;
               <a
                 className="blue-emphasis"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
                 onClick={() => setShowSignUp(true)}
               >
-                회원가입
+                SignUp
               </a>
               {showSignUp && (
                 <div

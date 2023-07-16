@@ -153,7 +153,7 @@ export const NormalImageGallery = ({ defectLengthChange }) => {
     <div>
       <div className="divider top-padding"></div>
       <div className="container">
-        <h1>결함품목</h1>
+        <h1>Defected</h1>
         <div className="content">
           <div className="normal-list scrollableList">
             <div
@@ -169,7 +169,7 @@ export const NormalImageGallery = ({ defectLengthChange }) => {
                 size="small"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                placeholder="검색어를 입력하세요"
+                placeholder="Search"
                 InputProps={{
                   startAdornment: (
                     <InputAdornment position="start">

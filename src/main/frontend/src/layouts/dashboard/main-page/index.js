@@ -112,10 +112,10 @@ const Dashboard = () => {
       <div className="menu-bar">
         <div className="menu-set">
           <a className="menu-item" onClick={handleScrollToNormal}>
-            정상품목
+            normal item
           </a>
           <a className="menu-item" onClick={handleScrollToDefect}>
-            결함품목
+            defective item
           </a>
         </div>
       </div>
@@ -124,7 +124,7 @@ const Dashboard = () => {
           className="logo"
           src={logo}
           alt="PDF Logo"
-          title="PCB 결함 탐지 서비스"
+          title="PCB Detect Service"
         ></img>
         <div className="menu-selector">
           <Button
@@ -133,7 +133,7 @@ const Dashboard = () => {
             style={buttonStyle}
             onClick={handleLogout}
           >
-            로그아웃
+            Logout
           </Button>
           <Button
             variant="outlined"
@@ -141,18 +141,18 @@ const Dashboard = () => {
             style={buttonStyle}
             onClick={() => movePage("/profile")} //있으면 로그인으로 돌아가도록
           >
-            회원정보
+            Profile
           </Button>
         </div>
       </div>
       <div className="hero-main "></div>
       <h1 className="color-set disable-select">
-        PCB 결함 탐지 <br /> 실시간 상황판
+        PCB Detect <br /> real-time dashboard
       </h1>
       <div className="container">
         <p className="color-set text-center">
           <span className="last-updated ">
-            마지막 업데이트: {lastUpdated.toLocaleString()}
+            Last Update: {lastUpdated.toLocaleString()}
             <IconButton onClick={handleRefresh}>
               <RefreshIcon className="refresh-icon" />
             </IconButton>
@@ -160,19 +160,19 @@ const Dashboard = () => {
         </p>
         <div>
           <p className="color-set text-center">
-            <span>부품 데이터를 직접 넣으시고 싶으신가요?</span>
+            <span>Would you like to enter your parts data yourself?</span>
             <Button
               variant="outlined"
               onClick={handleOpen}
               size="small"
               style={buttonStyle}
             >
-              업로드
+              Upload
             </Button>
             <Modal open={open} onClose={handleClose}>
               <div className="modal-container">
                 <div className="modal-header">
-                  <h3 className="modal-title">새 PCB 이미지 파일 첨부</h3>
+                  <h3 className="modal-title">Attach new PCB image file</h3>
                   <div className="divider"></div>
                 </div>
                 <ImageUpload onClose={handleClose} />
@@ -182,21 +182,21 @@ const Dashboard = () => {
         </div>
       </div>
       <div className="top container">
-        <h2 className="disable-select">상태 현황</h2>
+        <h2 className="disable-select">Status</h2>
         <div className="row">
           <div className="text-box text-center">
             <CounterAnimation
               max={externalNormalLength + externalDefectLength}
             />
-            <p className="disable-select fontup">전체 수량</p>
+            <p className="disable-select fontup">Total Count</p>
           </div>
           <div className="text-box text-center">
             <CounterAnimation className="red" max={externalDefectLength} />
-            <p className="disable-select fontup">결함품 수량</p>
+            <p className="disable-select fontup">Defected Count</p>
           </div>
           <div className="text-box text-center">
             <CounterAnimation className="green" max={externalNormalLength} />
-            <p className="disable-select fontup">정상품 수량</p>
+            <p className="disable-select fontup">Normal Count</p>
           </div>
         </div>
       </div>

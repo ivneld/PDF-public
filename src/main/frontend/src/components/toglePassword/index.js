@@ -47,7 +47,7 @@ function ToglePasswordField({ onChange }) {
       }}
       error={error}
       helperText={
-        error ? "비밀번호는 10자리 이상의 영어와 숫자만 입력해주세요." : ""
+        error ? "Please enter a password of at least 10 digits in English and numbers only." : ""
       }
     />
   );

@@ -93,7 +93,7 @@ const ProfilePage = () => {
 
       setPassword(pw);
       setPasswordField("");
-      alert("비밀번호가 성공적으로 변경되었습니다!");
+      alert("Your password has been successfully changed!");
     } catch (error) {
       console.log(error);
     }
@@ -117,13 +117,13 @@ const ProfilePage = () => {
         setEmail(email);
         setPhone(phone);
 
-        alert("회원정보가 성공적으로 변경되었습니다!");
+        alert("Member information has been successfully changed!");
         profileEditToggle();
       } catch (error) {
         console.log(error);
       }
     } else {
-      alert("비밀번호가 일치하지 않습니다");
+      alert("Passwords do not match");
     }
   };
 
@@ -132,14 +132,14 @@ const ProfilePage = () => {
       try {
         const response = await axios.get(`/profile/delete/${id}`);
         alert(
-          "탈퇴가 완료되었습니다. 확인을 누르시면 로그인 페이지로 돌아갑니다."
+          "Withdrawal is complete. Click OK to return to the login page."
         );
         movePage("/authentication/sign-in");
       } catch (error) {
         console.log(error);
       }
     } else {
-      alert("비밀번호가 일치하지 않습니다");
+      alert("Passwords do not match");
     }
   };
 
@@ -214,38 +214,38 @@ const ProfilePage = () => {
             }}
             onClick={handleLogout}
           >
-            로그아웃
+            Logout
           </Button>
         </div>
 
         <div className="title-container">
           <div className="name-id-text">
-            <h1>{name}님</h1>
-            <h2>안녕하세요 !</h2>
+            <h1>{name}</h1>
+            <h2>Hello !</h2>
           </div>
         </div>
         {showEditForm ? (
           <div className="top profile-container">
             <div className="typo-container">
               <div className="info-text">
-                <p className="font-title">아이디</p>
+                <p className="font-title">Id</p>
                 <p className="font-body">{id}</p>
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">이메일</p>
+                <p className="font-title">Email</p>
                 <p className="font-body">{email}</p>
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">전화번호</p>
+                <p className="font-title">Phone</p>
                 <p className="font-body">
                   {phone.slice(0, 3)}-{phone.slice(3, 7)}-{phone.slice(7)}
                 </p>
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">관리자 번호</p>
+                <p className="font-title">Admin Id</p>
                 <p className="font-body">
                   {showFullNumber
                     ? adminId
@@ -266,7 +266,7 @@ const ProfilePage = () => {
             </div>
             <div className="set-to-center set-to-bottom">
               <Button variant="outlined" onClick={profileEditToggle}>
-                회원정보 수정
+                Edit member information
               </Button>
             </div>
           </div>
@@ -289,7 +289,7 @@ const ProfilePage = () => {
             </div>
             <div className="typo-container">
               <div className="info-text">
-                <p className="font-title">아이디</p>
+                <p className="font-title">Id</p>
                 <TextField
                   variant="standard"
                   size="small"
@@ -300,7 +300,7 @@ const ProfilePage = () => {
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">비밀번호</p>
+                <p className="font-title">Password</p>
                 <TextField
                   variant="standard"
                   size="small"
@@ -311,7 +311,7 @@ const ProfilePage = () => {
                   error={error}
                   helperText={
                     error
-                      ? "비밀번호는 10자리 이상의 영어와 숫자만 입력해주세요."
+                      ? "Please enter a password of at least 10 digits in English and numbers only."
                       : ""
                   }
                   InputProps={{
@@ -327,7 +327,7 @@ const ProfilePage = () => {
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">이메일</p>
+                <p className="font-title">Email</p>
                 <TextField
                   variant="standard"
                   size="small"
@@ -336,13 +336,13 @@ const ProfilePage = () => {
                   onChange={handleEmailChange}
                   error={emailError}
                   helperText={
-                    emailError ? "유효한 이메일 주소를 입력하세요." : ""
+                    emailError ? "Please enter a valid email address." : ""
                   }
                 />
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">전화번호</p>
+                <p className="font-title">Phone</p>
                 <TextField
                   variant="standard"
                   size="small"
@@ -353,7 +353,7 @@ const ProfilePage = () => {
               </div>
               <div className="divider"></div>
               <div className="info-text">
-                <p className="font-title">관리자 번호</p>
+                <p className="font-title">AdminId</p>
                 <TextField
                   variant="standard"
                   size="small"
@@ -371,7 +371,7 @@ const ProfilePage = () => {
                 sx={{ margin: "0 1vw 0 1vw" }}
                 onClick={handlePasswordUpdate}
               >
-                비밀번호 수정
+                Update
               </Button>
               <Button
                 variant="outlined"
@@ -379,7 +379,7 @@ const ProfilePage = () => {
                 size="small"
                 sx={{ margin: "0 1vw 0 1vw" }}
               >
-                변경내용 저장
+                Save
               </Button>
               <Button
                 variant="outlined"
@@ -388,7 +388,7 @@ const ProfilePage = () => {
                 onClick={handleMemberWithdrawal}
                 sx={{ margin: "0 1vw 0 1vw" }}
               >
-                회원탈퇴
+                Withdrawal
               </Button>
             </div>
           </div>

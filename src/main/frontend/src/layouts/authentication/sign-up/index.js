@@ -51,25 +51,25 @@ export default function SignUp() {
       .then((res) => {
         console.log("Response : ", res);
         if (res.data.su_nickname === null && res.data.su_adminId !== null) {
-          alert("이미 등록되어있거나 올바르지 않은 아이디입니다.");
+          alert("This ID is either already registered or incorrect.");
         } else if (
           res.data.su_nickname !== null &&
           res.data.su_adminId === null
         ) {
-          alert("올바르지 않은 관리자 번호입니다.");
+          alert("Invalid manager number.");
         } else if (
           res.data.su_nickname === null &&
           res.data.su_adminId === null
         ) {
-          alert("올바르지 않은 아이디, 관리자 번호입니다.");
+          alert("Invalid ID, admin number.");
         } else {
-          alert("회원가입이 완료되었습니다.");
+          alert("Sign up is complete.");
           movePage("/authentication/");
         }
       })
       .catch((error) => {
-        console.error("API 호출 중 오류가 발생했습니다.", error);
-        alert("회원가입 중 오류가 발생했습니다. 다시 시도해주세요.");
+        console.error("An error occurred while calling the API.", error);
+        alert("An error occurred while signing up. please try again.");
       });
   };
 
@@ -91,7 +91,7 @@ export default function SignUp() {
 
   return (
     <div style={{ marginTop: "20px" }}>
-      <h2 className="response-header">관리자 계정을 만들어주세요!</h2>
+      <h2 className="response-header">Please create an admin account!</h2>
       <div className="signup-form-style">
         <TextField
           id="setID"
@@ -109,7 +109,7 @@ export default function SignUp() {
           }}
           error={id_error}
           helperText={
-            id_error ? "10자리 이하의 영어와 숫자만 입력해주세요." : ""
+            id_error ? "Please enter only letters and numbers of 10 digits or less." : ""
           }
           sx={{ width: "80%", marginBottom: "1vh" }}
         />
@@ -144,7 +144,7 @@ export default function SignUp() {
           <Grid item xs={6}>
             <TextField
               id="setName"
-              label="이름"
+              label="name"
               value={su_name}
               onChange={(e) => setSignupName(e.target.value)}
               variant="standard"
@@ -154,7 +154,7 @@ export default function SignUp() {
           <Grid item xs={6}>
             <TextField
               id="setAdminID"
-              label="관리자 ID"
+              label="admin ID"
               value={su_ad}
               onChange={(e) => setSignupAdid(e.target.value)}
               variant="standard"
@@ -169,18 +169,18 @@ export default function SignUp() {
           onClick={onClickSignup}
           sx={{ width: "80%", marginTop: "4vh" }}
         >
-          회원가입
+          SignUp
         </Button>
         <hr />
         <div style={{ marginTop: "3vh" }}>
-          이미 회원가입을 하셨나요? &nbsp;
+          Have you already registered as a member? &nbsp;
           <a
             className="blue-emphasis"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onClick={() => movePage("/authentication/")} //있으면 로그인으로 돌아가도록
           >
-            로그인
+            LogIn
           </a>
         </div>
       </div>

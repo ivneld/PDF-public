@@ -67,11 +67,11 @@ function ImageUpload({ onClose }) {
         formData
       );
       // 분석 결과를 받아와서 처리하는 로직 작성
-      console.log("분석 결과:", response.data);
+      console.log("Analysis:", response.data);
       setIsAnalyzing(true);
       setDetectedBoxes(response.data);
     } catch (error) {
-      console.error("전송 실패:", error);
+      console.error("Failed to send:", error);
     }
   };
 
@@ -91,12 +91,12 @@ function ImageUpload({ onClose }) {
         "http://localhost:8080/dashboard/upload",
         formData
       );
-      console.log("전송 성공:", response.data);
+      console.log("transmission success:", response.data);
       // 전송에 성공한 후에 처리할 로직 작성
-      alert("파일이 업로드 되었습니다!");
+      alert("Your file has been uploaded!");
       onClose(); // 모달 창 닫기
     } catch (error) {
-      console.error("전송 실패:", error);
+      console.error("Failed to send:", error);
     }
   };
 
@@ -136,10 +136,10 @@ function ImageUpload({ onClose }) {
       {!selectedFile && !isAnalyzing && (
         <div className="upload-text-container">
           <p className="font-gray set-line">
-            수동으로 파일을 첨부하여, 분석한 결과를 저장할 수 있습니다.
+            By manually attaching a file, you can save the analysis result.
           </p>
           <p className="font-gray font-bold">
-            아래의 '파일첨부'에서 파일을 선택해주세요.
+            Please select a file from 'Attach a file' below.
           </p>
         </div>
       )}
@@ -164,7 +164,7 @@ function ImageUpload({ onClose }) {
             size="small"
             style={customButtonStyle}
           >
-            파일첨부
+            Attachments
           </Button>
         </label>
       )}
@@ -179,7 +179,7 @@ function ImageUpload({ onClose }) {
             style={customButtonStyle}
             onClick={handleAnalyzing}
           >
-            분석하기
+            analyze
           </Button>
         </div>
       )}
@@ -198,7 +198,7 @@ function ImageUpload({ onClose }) {
               size="small"
               onClick={handleCancel}
             >
-              취소
+              cancel
             </Button>
             <Button
               variant="contained"
@@ -206,7 +206,7 @@ function ImageUpload({ onClose }) {
               size="small"
               onClick={handleUpload}
             >
-              전송
+              submit
             </Button>
           </div>
         </div>
